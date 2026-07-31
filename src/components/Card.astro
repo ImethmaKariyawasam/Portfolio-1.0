@@ -23,7 +23,7 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
 
 <article class={cardClass}>
   {(logo || monogram) && (
-    <div class="tile">
+    <div class={logo ? "tile has-logo" : "tile"}>
       {logo ? <img src={logo} alt={title} loading="lazy" /> : monogram}
     </div>
   )}

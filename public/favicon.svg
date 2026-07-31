@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <rect width="64" height="64" rx="16" fill="#96436C" />
-    <text x="32" y="43" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="24"
-        font-weight="700" letter-spacing="-1" fill="#F7F7F2" text-anchor="middle">IK</text>
+    <rect width="64" height="64" rx="16" fill="#2F6B3F" />
+    <circle cx="25" cy="23" r="11" fill="#F7F7F2" />
+    <circle cx="39" cy="23" r="11" fill="#F7F7F2" />
+    <circle cx="25" cy="37" r="11" fill="#F7F7F2" />
+    <circle cx="39" cy="37" r="11" fill="#F7F7F2" />
+    <line x1="32" y1="37" x2="32" y2="52" stroke="#F7F7F2" stroke-width="3" stroke-linecap="round" />
 </svg>
