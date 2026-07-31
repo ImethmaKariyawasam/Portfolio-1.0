@@ -1,0 +1,43 @@
+export interface Experience {
+  id: string;
+  org: string;
+  role: string;
+  dates: string;
+  bullets?: string[];
+  body?: string;
+  tags: string[];
+  href?: string;
+  hrefLabel?: string;
+  monogram: string;
+}
+
+export const experience: Experience[] = [
+  {
+    id: "cambio",
+    org: "Cambio Software Engineering",
+    role: "Software Engineer Intern",
+    // TODO (brief section 8): exact end month not yet confirmed — reference file has
+    // "Jul 2024 – 2026" but earlier CV drafts used "Present" (ongoing). Confirm before shipping.
+    dates: "Jul 2024 – 2026",
+    bullets: [
+      "Delivered bug fixes and feature enhancements on enterprise modules of the Cosmic platform, in a live production codebase.",
+      "Worked across Java Spring Boot, Java Swing, Node.js and Angular.",
+      "Maintained Active Directory environments and supported Jenkins CI/CD pipelines for repeatable deployments.",
+    ],
+    tags: ["Java", "Spring Boot", "Angular", "Node.js", "Jenkins"],
+    monogram: "CB",
+  },
+  {
+    id: "ieee-sl-spark",
+    org: "IEEE Sri Lanka Section",
+    role: "Web Development Coordinator · volunteer",
+    dates: "Sep 2024",
+    body:
+      "Built and shipped the official SPARK 2024 competition site in collaboration with the " +
+      "Ceylon Chamber of Commerce and the International Labour Organization in Sri Lanka.",
+    tags: ["Web", "Client work"],
+    href: "https://spark.chamber.lk",
+    hrefLabel: "View details",
+    monogram: "IE",
+  },
+];

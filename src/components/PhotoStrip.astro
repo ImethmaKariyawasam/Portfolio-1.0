@@ -1,0 +1,33 @@
+---
+// Drag-scroll photo strip with a live counter and prev/next buttons.
+// The actual JPEGs are a TODO (brief section 8) — the reference file
+// itself renders a mono filename placeholder in each frame rather than a
+// real <img>, so that's what's ported here too. Swap the placeholder
+// <span> for a real <img src={photo.src} alt={photo.alt} loading="lazy">
+// once the photos exist; the Photo data shape already has src/alt ready
+// for that change.
+import type { Photo } from "../data/community";
+interface Props {
+  photos: Photo[];
+}
+const { photos } = Astro.props;
+const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
+---
+
+<div class="strip-head">
+  <span class="mono" id="shotCount">{pad(1)} / {pad(photos.length)}</span>
+  <div class="strip-nav">
+    <button type="button" id="stripPrev" aria-label="Previous photos">&larr;</button>
+    <button type="button" id="stripNext" aria-label="More photos">&rarr;</button>
+  </div>
+</div>
+<div class="strip">
+  {photos.map((photo) => (
+    <figure class="shot">
+      <div class="frame">
+        <span class="mono">{photo.src.split("/").pop()}</span>
+      </div>
+      <figcaption class="mono">{photo.caption}</figcaption>
+    </figure>
+  ))}
+</div>

@@ -1,0 +1,59 @@
+---
+// The one card used everywhere: projects, experience, education, the
+// publication, and the "duo" interest cards. Variants match the
+// reference file's `.card`, `.card.quiet`, and duo-context usage.
+export interface Props {
+  variant?: "default" | "quiet";
+  monogram?: string;
+  num?: string; // "01" prefix shown before the title
+  title: string;
+  date?: string; // mono text, top-right of the card head
+  headLink?: { href: string; label: string }; // used instead of `date` by interest cards
+  sub?: string;
+  body?: string;
+  bullets?: string[];
+  tags?: string[];
+  link?: { href: string; label: string }; // bottom link, e.g. "Read the paper"
+}
+const { variant = "default", monogram, num, title, date, headLink, sub, body, bullets, tags, link } =
+  Astro.props;
+const cardClass = variant === "quiet" ? "card quiet" : "card";
+---
+
+<article class={cardClass}>
+  {monogram && <div class="tile">{monogram}</div>}
+  <div>
+    <div class="card-head">
+      <h3 class="card-title">
+        {num && <span class="num mono">{num}</span>}{title}
+      </h3>
+      {date && <span class="mono">{date}</span>}
+      {headLink && (
+        <a class="link" href={headLink.href}>
+          {headLink.label} <span class="arw">&rarr;</span>
+        </a>
+      )}
+    </div>
+    {sub && <p class="card-sub">{sub}</p>}
+    {body && <p class="card-body">{body}</p>}
+    {bullets && bullets.length > 0 && (
+      <ul>
+        {bullets.map((b) => (
+          <li>{b}</li>
+        ))}
+      </ul>
+    )}
+    {tags && tags.length > 0 && (
+      <div class="tags">
+        {tags.map((t) => (
+          <span>{t}</span>
+        ))}
+      </div>
+    )}
+    {link && (
+      <a class="link" href={link.href}>
+        {link.label} <span class="arw">&rarr;</span>
+      </a>
+    )}
+  </div>
+</article>

@@ -1,19 +1,182 @@
 ---
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import TopBar from "../components/TopBar.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import Panel from "../components/Panel.astro";
+import PhotoStrip from "../components/PhotoStrip.astro";
+import ContactGrid from "../components/ContactGrid.astro";
+import Paws from "../components/Paws.astro";
+
+import { site } from "../data/site";
+import { skills, skillsHeading, skillsSub } from "../data/skills";
+import { currentlyBuilding, projects } from "../data/projects";
+import { experience } from "../data/experience";
+import { education } from "../data/education";
+import { communityIntro, communityRoles, alsoInvolvedWith, photos } from "../data/community";
+import { competitions } from "../data/competitions";
+import { publication } from "../data/publication";
+import { interests } from "../data/interests";
+
+const contactLinks = [
+  { label: "Email", value: site.links.email, href: `mailto:${site.links.email}` },
+  { label: "LinkedIn", value: "/in/ImethmaKariyawasam", href: site.links.linkedin },
+  { label: "GitHub", value: "@ImethmaKariyawasam", href: site.links.github },
+  { label: "CV", value: "Download as PDF", href: site.links.cv },
+];
 ---
 
-<html lang="en" data-theme="paper">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<!-- Step 1 verification only — real markup arrives in step 2 (Layout + Background). -->
-		<h1 class="text-t-name" style="color: var(--accent); font-family: var(--font-mono);">Token check</h1>
-		<p style="color: var(--muted);">If this renders in the mono font, in blue-grey accent colour, on the paper background, the token pipeline works.</p>
-	</body>
-</html>
+<Layout>
+  <div class="wrap">
+    <TopBar />
+    <Hero />
+
+    <!-- INTRO -->
+    <section class="block rise" style="animation-delay:.22s">
+      <div></div>
+      <div class="card plain">
+        <div>
+          <p class="card-body" style="font-size:var(--t-lead); color:var(--ink); letter-spacing:-.024em; margin-bottom:var(--s2)">
+            {site.tagline}
+          </p>
+          <p class="card-body">{site.intro}</p>
+          <div class="tags">
+            {site.introTags.map((t) => <span>{t}</span>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <Section label="Stack" heading={skillsHeading} sub={skillsSub}>
+      <div class="cloud">
+        {skills.map((s) => <span>{s}</span>)}
+      </div>
+    </Section>
+
+    <!-- CURRENTLY BUILDING -->
+    <Section label="Right now" heading="What I'm building at the moment">
+      <Card
+        monogram={currentlyBuilding.monogram}
+        title={currentlyBuilding.title}
+        date={currentlyBuilding.dates}
+        sub={currentlyBuilding.kind}
+        body={currentlyBuilding.body}
+      />
+    </Section>
+
+    <!-- PROJECTS -->
+    <Section label="Selected work" heading="Things I've built" sub="Built in teams at SLIIT. Each one names the part that was mine.">
+      <div class="stack-v">
+        {projects.map((p, i) => (
+          <Card
+            monogram={p.monogram}
+            num={String(i + 1).padStart(2, "0")}
+            title={p.title}
+            date={p.dates}
+            sub={p.summary}
+            body={p.body}
+            tags={p.tags}
+            link={p.href ? { href: p.href, label: p.hrefLabel ?? "View details" } : undefined}
+          />
+        ))}
+      </div>
+    </Section>
+
+    <!-- EXPERIENCE -->
+    <Section label="Experience" heading="Where I've worked so far">
+      <div class="stack-v">
+        {experience.map((e) => (
+          <Card
+            monogram={e.monogram}
+            title={e.org}
+            date={e.dates}
+            sub={e.role}
+            body={e.body}
+            bullets={e.bullets}
+            tags={e.tags}
+            link={e.href ? { href: e.href, label: e.hrefLabel ?? "View details" } : undefined}
+          />
+        ))}
+      </div>
+    </Section>
+
+    <!-- PUBLICATION -->
+    <Section label="Research" heading="Published research">
+      <Card
+        monogram={publication.monogram}
+        title={publication.title}
+        date={publication.dates}
+        sub={publication.venue}
+        body={publication.body}
+        tags={publication.tags}
+        link={{ href: publication.href, label: publication.hrefLabel }}
+      />
+    </Section>
+
+    <!-- EDUCATION -->
+    <Section label="Education" heading="My education so far">
+      <div class="stack-v">
+        {education.map((ed) => (
+          <Card
+            monogram={ed.monogram}
+            title={ed.school}
+            date={ed.dates}
+            sub={ed.summary}
+            body={ed.body}
+            tags={ed.tags}
+          />
+        ))}
+      </div>
+    </Section>
+
+    <!-- COMMUNITY -->
+    <Section label="Off screen" heading="Outside the coursework" sub={communityIntro}>
+      <Panel
+        items={communityRoles.map((r) => ({ name: r.role, detail: r.org, dates: r.dates }))}
+        wideLabel="Also involved with"
+        wideTags={alsoInvolvedWith}
+      />
+      <PhotoStrip photos={photos} />
+    </Section>
+
+    <!-- COMPETITIONS -->
+    <Section label="Competitions" heading="Where I compete">
+      <Panel
+        items={competitions.map((c) => ({ name: c.name, detail: c.detail, dates: c.dates }))}
+      />
+    </Section>
+
+    <!-- SIDE PROJECTS -->
+    <Section label="Also me" heading="Away from the keyboard">
+      <div class="duo">
+        {interests.map((it) => (
+          <Card
+            variant="quiet"
+            monogram={it.monogram}
+            title={it.title}
+            headLink={it.href ? { href: it.href, label: it.hrefLabel } : undefined}
+            sub={it.summary}
+            body={it.body}
+          />
+        ))}
+      </div>
+    </Section>
+
+    <!-- CONTACT -->
+    <Section
+      label="Contact"
+      heading="Contact me"
+      sub="Whether it is a role, a project, or something you read above, I would love to hear from you over a virtual coffee chat."
+    >
+      <ContactGrid links={contactLinks} />
+    </Section>
+
+    <footer class="foot">
+      <span class="mono">{site.name} &middot; {site.location.label}</span>
+      <span class="mono">{site.footerNote}</span>
+      <Paws direction="northeast" />
+    </footer>
+  </div>
+</Layout>

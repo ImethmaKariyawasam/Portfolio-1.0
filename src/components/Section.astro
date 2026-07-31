@@ -1,0 +1,27 @@
+---
+// The gutter-label + two-part heading wrapper used by every content block.
+// `animate="rise"` is only used by the top strip/hero/intro (visible on
+// load); everything below the fold uses the default "reveal" (scroll-
+// triggered) per the reference file.
+interface Props {
+  label?: string;
+  heading?: string;
+  sub?: string;
+  animate?: "reveal" | "rise";
+  delay?: string; // e.g. ".10s" — only meaningful with animate="rise"
+}
+const { label, heading, sub, animate = "reveal", delay } = Astro.props;
+---
+
+<section class={`block ${animate}`} style={delay ? `animation-delay:${delay}` : undefined}>
+  <div class={label ? "label mono" : undefined}>{label}</div>
+  <div>
+    {heading && (
+      <div class="head">
+        <h2>{heading}</h2>
+        {sub && <p>{sub}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

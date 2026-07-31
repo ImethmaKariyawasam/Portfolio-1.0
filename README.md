@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# Imethma Kariyawasam — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Personal portfolio site. Built with Astro, TypeScript, and Tailwind v4.
+
+## Structure
+
+```
+src/
+├── data/         # All copy and content — projects, experience, education, etc.
+├── components/   # Background, Card, Panel, Section, PhotoStrip, ContactGrid, Paws, TopBar, Hero
+├── layouts/      # Layout.astro — page shell, theme script, SEO
+└── pages/        # index.astro — assembles everything
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Adding a project, a role, or an award means editing the relevant file in `src/data/` —
+no HTML changes needed.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command           | Action                                       |
+| :----------------- | :-------------------------------------------- |
+| `npm install`       | Install dependencies                          |
+| `npm run dev`       | Start local dev server at `localhost:4321`    |
+| `npm run build`     | Build the production site to `./dist/`        |
+| `npm run preview`   | Preview the production build locally          |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Still outstanding
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- [ ] Portrait photo → `public/images/imethma.jpg`
+- [ ] Ten volunteering photos (4:3) → `public/images/volunteering/`
+- [ ] CV as PDF, linked from `src/data/site.ts`
+- [ ] Art channel and Medium profile URLs, in `src/data/site.ts`
+- [ ] Confirm exact Cambio end month in `src/data/experience.ts`
+- [ ] Deploy to Vercel and update the `site` URL in `astro.config.mjs`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Theme system
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Three themes — `paper` (default), `white`, `blueprint` — toggled by the button in the
+top bar, persisted to `localStorage`, and applied before first paint via an inline
+script in `Layout.astro` (no flash of the wrong theme on reload).

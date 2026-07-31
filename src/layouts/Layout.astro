@@ -1,0 +1,229 @@
+---
+import "../styles/global.css";
+import Background from "../components/Background.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = `${site.name}, Software Engineer`,
+  description = "Software engineer working across backend, cloud and applied AI. Final-year SE undergraduate at SLIIT, intern at Cambio, IEEE co-author.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: "Software Engineer",
+  url: canonicalURL.toString(),
+  sameAs: [site.links.github, site.links.linkedin].filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="paper">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+
+    <!--
+      No-flash theme script. Runs before first paint so the page never
+      shows the default "paper" theme for a frame before switching to a
+      saved preference — this is the persistence fix the brief calls out
+      as a real bug in the reference file (theme currently resets on
+      every reload).
+    -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "paper" || saved === "white" || saved === "blueprint") {
+            document.documentElement.setAttribute("data-theme", saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <Background />
+    <slot />
+
+    <script is:inline>
+      (function () {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* --- themes: cycle + persist (the documented reload bug, fixed) --- */
+        var themes = ["paper", "white", "blueprint"];
+        var root = document.documentElement;
+        var btn = document.getElementById("themeBtn");
+        var current = root.getAttribute("data-theme");
+        var ti = themes.indexOf(current);
+        if (ti === -1) ti = 0;
+
+        function apply(i, persist) {
+          ti = i;
+          root.setAttribute("data-theme", themes[i]);
+          if (persist) {
+            try {
+              localStorage.setItem("theme", themes[i]);
+            } catch (e) {}
+          }
+          var next = themes[(i + 1) % themes.length];
+          if (btn) {
+            btn.textContent = next;
+            btn.setAttribute("aria-label", "Switch to the " + next + " theme");
+          }
+        }
+        // Sync the button label to whatever the no-flash head script already
+        // applied — do not re-persist here, only actual clicks should write.
+        apply(ti, false);
+        if (btn) {
+          btn.addEventListener("click", function () {
+            apply((ti + 1) % themes.length, true);
+          });
+        }
+
+        /* --- local time in Sri Lanka --- */
+        var clock = document.getElementById("clock");
+        function tick() {
+          if (!clock) return;
+          clock.textContent = new Date().toLocaleTimeString("en-GB", {
+            timeZone: "Asia/Colombo",
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        }
+        tick();
+        setInterval(tick, 10000);
+
+        /* --- scroll reveal --- */
+        var items = document.querySelectorAll(".reveal");
+        if (reduce || !("IntersectionObserver" in window)) {
+          items.forEach(function (el) {
+            el.classList.add("in");
+          });
+        } else {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in");
+                  io.unobserve(e.target);
+                }
+              });
+            },
+            { rootMargin: "0px 0px -12% 0px" }
+          );
+          items.forEach(function (el) {
+            io.observe(el);
+          });
+        }
+
+        /* --- drag the photo strip --- */
+        var strip = document.querySelector(".strip");
+        if (strip) {
+          var down = false,
+            sx = 0,
+            sl = 0;
+          strip.addEventListener("pointerdown", function (e) {
+            down = true;
+            sx = e.clientX;
+            sl = strip.scrollLeft;
+            strip.setPointerCapture(e.pointerId);
+          });
+          strip.addEventListener("pointermove", function (e) {
+            if (down) strip.scrollLeft = sl - (e.clientX - sx);
+          });
+          ["pointerup", "pointercancel"].forEach(function (t) {
+            strip.addEventListener(t, function () {
+              down = false;
+            });
+          });
+        }
+
+        /* --- photo strip arrows --- */
+        var prev = document.getElementById("stripPrev"),
+          next = document.getElementById("stripNext");
+        if (strip && prev && next) {
+          function nudge(dir) {
+            strip.scrollBy({ left: dir * 224 * 2, behavior: reduce ? "auto" : "smooth" });
+          }
+          prev.addEventListener("click", function () {
+            nudge(-1);
+          });
+          next.addEventListener("click", function () {
+            nudge(1);
+          });
+          var countEl = document.getElementById("shotCount");
+          function pad(n) {
+            return (n < 10 ? "0" : "") + n;
+          }
+          function updateCount() {
+            var shots = strip.querySelectorAll(".shot");
+            if (!shots.length) return;
+            var step = shots[0].getBoundingClientRect().width + 16;
+            var i = Math.min(shots.length, Math.round(strip.scrollLeft / step) + 1);
+            if (countEl) countEl.textContent = pad(i) + " / " + pad(shots.length);
+          }
+          updateCount();
+          strip.addEventListener("scroll", updateCount, { passive: true });
+          addEventListener("resize", updateCount);
+        }
+
+        /* --- cursor: dot follows exactly, ring trails --- */
+        if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          var dot = document.querySelector(".cur-dot"),
+            ring = document.querySelector(".cur-ring"),
+            x = innerWidth / 2,
+            y = innerHeight / 2,
+            rx = x,
+            ry = y;
+
+          document.body.classList.add("cursor-on");
+
+          addEventListener("mousemove", function (e) {
+            x = e.clientX;
+            y = e.clientY;
+            dot.style.transform = "translate(" + x + "px," + y + "px)";
+          });
+
+          (function loop() {
+            rx += (x - rx) * 0.16;
+            ry += (y - ry) * 0.16;
+            ring.style.transform = "translate(" + rx + "px," + ry + "px)";
+            requestAnimationFrame(loop);
+          })();
+
+          document.querySelectorAll("a, button, .card, .cloud span, .shot").forEach(function (el) {
+            el.addEventListener("mouseenter", function () {
+              ring.classList.add("hot");
+            });
+            el.addEventListener("mouseleave", function () {
+              ring.classList.remove("hot");
+            });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

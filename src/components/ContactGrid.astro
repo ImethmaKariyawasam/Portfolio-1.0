@@ -1,0 +1,24 @@
+---
+// 2x2 grid of contact links. Any entry with an empty href is filtered out
+// entirely — per the brief, this must never render a dead "#" link (e.g.
+// the CV card disappears until site.links.cv is actually supplied).
+interface ContactLink {
+  label: string;
+  value: string;
+  href: string;
+}
+interface Props {
+  links: ContactLink[];
+}
+const { links } = Astro.props;
+const active = links.filter((l) => l.href);
+---
+
+<div class="cgrid">
+  {active.map((l) => (
+    <a class="clink" href={l.href}>
+      <span><span class="mono">{l.label}</span><span class="cval">{l.value}</span></span>
+      <span class="arw">&rarr;</span>
+    </a>
+  ))}
+</div>

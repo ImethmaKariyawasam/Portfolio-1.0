@@ -1,0 +1,27 @@
+---
+// Three staggered paw prints. `direction="east"` is the hero trail
+// (walks left to right), `direction="northeast"` is the footer trail
+// (curves up and away above the footer rule).
+//
+// NOTE — found while porting, not fixed (per brief: raise, don't silently
+// fix): in the reference CSS, `.paws svg { animation: step ... }` is
+// declared *after* `.foot-trail svg { animation: stepNE ... }` with equal
+// selector specificity, so the later rule wins the cascade. That means
+// the footer trail's intended diagonal "stepNE" animation and its
+// per-print --r/margin overrides are currently being overridden by the
+// hero's horizontal "step" values wherever both classes apply to the same
+// svg. This is ported exactly as it behaves in imethma-portfolio-v48.html
+// — worth deciding whether that's an intentional look or an actual bug
+// before this ships.
+interface Props {
+  direction: "east" | "northeast";
+}
+const { direction } = Astro.props;
+const trailClass = direction === "northeast" ? "foot-trail" : "hero-paws";
+---
+
+<span class={`paws ${trailClass}`} aria-hidden="true">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16.5" rx="6" ry="5"></ellipse><ellipse cx="4.6" cy="9.6" rx="2.5" ry="3.3"></ellipse><ellipse cx="9.6" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="14.8" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="19.6" cy="9.8" rx="2.5" ry="3.3"></ellipse></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16.5" rx="6" ry="5"></ellipse><ellipse cx="4.6" cy="9.6" rx="2.5" ry="3.3"></ellipse><ellipse cx="9.6" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="14.8" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="19.6" cy="9.8" rx="2.5" ry="3.3"></ellipse></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16.5" rx="6" ry="5"></ellipse><ellipse cx="4.6" cy="9.6" rx="2.5" ry="3.3"></ellipse><ellipse cx="9.6" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="14.8" cy="5.4" rx="2.5" ry="3.6"></ellipse><ellipse cx="19.6" cy="9.8" rx="2.5" ry="3.3"></ellipse></svg>
+</span>

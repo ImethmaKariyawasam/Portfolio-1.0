@@ -1,0 +1,40 @@
+---
+// The outlined, transparent list container used by Community and
+// Competitions. `wideLabel`/`wideTags` render the trailing full-width
+// tag row (e.g. "Also involved with" -> IEEE SL SIGHT, IEEE SL IAS...).
+export interface PanelItem {
+  name: string;
+  detail?: string;
+  dates: string;
+}
+interface Props {
+  items: PanelItem[];
+  wideLabel?: string;
+  wideTags?: string[];
+}
+const { items, wideLabel, wideTags } = Astro.props;
+---
+
+<div class="panel">
+  <ul class="list">
+    {items.map((item) => (
+      <li>
+        <span>
+          {item.name}
+          {item.detail && <small>{item.detail}</small>}
+        </span>
+        <span class="mono">{item.dates}</span>
+      </li>
+    ))}
+    {wideLabel && wideTags && wideTags.length > 0 && (
+      <li class="wide">
+        <span>{wideLabel}</span>
+        <div class="tags">
+          {wideTags.map((t) => (
+            <span>{t}</span>
+          ))}
+        </div>
+      </li>
+    )}
+  </ul>
+</div>
