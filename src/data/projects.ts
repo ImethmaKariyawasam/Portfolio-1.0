@@ -9,6 +9,7 @@ export interface Project {
   href?: string;
   hrefLabel?: string; // "Read the paper", "View details"
   monogram: string; // "IN", "FF", "CB" — shown in the tile
+  logo?: string;
 }
 
 export const currentlyBuilding: Project = {
@@ -42,6 +43,7 @@ export const projects: Project[] = [
     href: "https://ieeexplore.ieee.org/document/11604795",
     hrefLabel: "Read the paper",
     monogram: "IN",
+    logo: "/images/logos/intellea.png",
   },
   {
     id: "flavour-fleet",
@@ -55,6 +57,7 @@ export const projects: Project[] = [
       "management service end to end, including how it fails without taking an order down with it.",
     tags: ["Spring Boot", "Docker", "Kubernetes", "React", "Microservices"],
     monogram: "FF",
+    logo: "/images/logos/flavour-fleet.png",
   },
   {
     id: "visionspot",
@@ -69,6 +72,7 @@ export const projects: Project[] = [
       "state generally.",
     tags: ["React", "React Native", "Node", "Express", "MongoDB", "Firebase"],
     monogram: "VS",
+    logo: "/images/logos/visionspot.png",
   },
   {
     id: "zerowaste",
@@ -82,5 +86,6 @@ export const projects: Project[] = [
       "module. Money moving in both directions made the logic more interesting than it sounds.",
     tags: ["React", "Node", "Express", "MongoDB"],
     monogram: "ZW",
+    logo: "/images/logos/zerowaste.png",
   },
 ];

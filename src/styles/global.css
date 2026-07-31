@@ -381,7 +381,7 @@ a { color: inherit; }
 }
 .card:hover .tile { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
 
-.tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile img { width: 68%; height: 68%; object-fit: contain; display: block; margin: auto; }
 
 .card-head .link { font-size: var(--t-small); }
 .card-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); flex-wrap: wrap; }
