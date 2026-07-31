@@ -279,12 +279,12 @@ a { color: inherit; }
   gap: var(--s4); align-items: center; margin-bottom: var(--s5);
 }
 .status { display: flex; align-items: center; gap: var(--s1); }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); position: relative; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); position: relative; flex-shrink: 0; }
 .dot::after {
-  content: ""; position: absolute; inset: -4px; border-radius: 50%;
-  border: 1px solid var(--pink); opacity: .5; animation: pulse 2.8s ease-out infinite;
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  border: 1.5px solid var(--pink); opacity: .6; animation: pulse 2.8s ease-out infinite;
 }
-@keyframes pulse { 0% { transform: scale(.5); opacity: .6 } 70% { transform: scale(1.35); opacity: 0 } 100% { opacity: 0 } }
+@keyframes pulse { 0% { transform: scale(.5); opacity: .7 } 70% { transform: scale(1.6); opacity: 0 } 100% { opacity: 0 } }
 .topright { display: flex; align-items: center; gap: var(--s2); }
 .social { display: flex; align-items: center; gap: 2px; margin: var(--s2) 0 0 -6px; }
 .social a {
