@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts (replaces the reference file's Google Fonts <link>) */
+@import "@fontsource/instrument-sans/400.css";
+@import "@fontsource/instrument-sans/500.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+/* =======================================================================
+   DESIGN TOKENS
+   Ported verbatim from imethma-portfolio-v48.html — do not adjust values.
+   See CLAUDE-CODE-BRIEF.md section 3 for the source of truth.
+   ======================================================================= */
+
+:root {
+  /* spacing (8px base) */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 40px;
+  --s5: 64px;
+  --s6: 96px;
+
+  /* type scale */
+  --t-name: 40px;
+  --t-head: 26px;
+  --t-lead: 21px;
+  --t-sub: 17px;
+  --t-body: 16px;
+  --t-small: 14px;
+  --t-mono: 11px;
+
+  /* layout */
+  --gutter: 116px;
+  --radius: 22px;
+
+  /* colour — theme: paper (default) */
+  --paper: #F7F7F2;
+  --ink: #15181C;
+  --muted: #767D84;
+  --fine: rgba(60, 84, 130, .07);
+  --major: rgba(60, 84, 130, .115);
+  --rule: rgba(60, 84, 130, .15);
+  --line: rgba(21, 24, 28, .13);
+  --accent: #34558F;
+  --pink: #B0688F;
+  --glow: rgba(120, 160, 220, .19);
+  --card: rgba(255, 255, 255, .66);
+  --shadow: 0 1px 2px rgba(21, 32, 54, .03), 0 14px 36px -20px rgba(21, 32, 54, .18);
+  --lift: 0 2px 4px rgba(21, 32, 54, .04), 0 22px 48px -24px rgba(21, 32, 54, .26);
+  --hover: rgba(60, 84, 130, .045);
+  --grain: .032;
+}
+
+[data-theme="white"] {
+  --paper: #FFFFFF;
+  --ink: #101317;
+  --muted: #6E757C;
+  --fine: rgba(16, 19, 23, .045);
+  --major: rgba(16, 19, 23, .075);
+  --rule: rgba(16, 19, 23, .10);
+  --line: rgba(16, 19, 23, .12);
+  --accent: #2C4F8A;
+  --pink: #A85F87;
+  --glow: rgba(150, 175, 210, .10);
+  --card: #FFFFFF;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 16px 40px -22px rgba(16, 24, 40, .22);
+  --lift: 0 2px 6px rgba(16, 24, 40, .05), 0 24px 52px -26px rgba(16, 24, 40, .30);
+  --hover: rgba(16, 19, 23, .035);
+  --grain: .018;
+}
+
+[data-theme="blueprint"] {
+  --paper: #0A1420;
+  --ink: #E1EBF6;
+  --muted: #7B8FA6;
+  --fine: rgba(150, 205, 255, .08);
+  --major: rgba(150, 205, 255, .15);
+  --rule: rgba(150, 205, 255, .20);
+  --line: rgba(225, 235, 246, .14);
+  --accent: #86C4F0;
+  --pink: #E3A6C9;
+  --glow: rgba(70, 140, 210, .25);
+  --card: rgba(255, 255, 255, .04);
+  --shadow: 0 16px 44px -24px rgba(0, 0, 0, .75);
+  --lift: 0 24px 56px -26px rgba(0, 0, 0, .85);
+  --hover: rgba(134, 196, 240, .06);
+  --grain: .048;
+}
+
+/* =======================================================================
+   TAILWIND v4 THEME WIRING
+
+   The brief specifies wiring tokens to Tailwind's `theme.extend` — that
+   was written against Tailwind v3's JS config. `astro add tailwind`
+   installs v4, which is CSS-native: there is no tailwind.config.js by
+   default, and static theme values are registered here via `@theme`
+   instead. Flagging the mechanism change per the brief's own instruction
+   to raise deviations rather than silently reinterpreting them — the
+   *values* are identical, only how they reach Tailwind's utility
+   generator differs.
+
+   Tailwind's `@theme` block generates utilities at build time, so it
+   cannot hold tokens that change per [data-theme] (--paper, --ink,
+   --accent, --pink, etc. are runtime-swapped by the theme toggle).
+   Those stay as plain CSS custom properties below and are consumed in
+   components via Tailwind's arbitrary-value syntax, e.g.
+   `bg-[var(--paper)]`, `text-[var(--accent)]`. Static tokens that never
+   change per theme (spacing, type scale, radius, fonts) are registered
+   as real Tailwind utilities here.
+   ======================================================================= */
+
+@theme {
+  --spacing-s1: 8px;
+  --spacing-s2: 16px;
+  --spacing-s3: 24px;
+  --spacing-s4: 40px;
+  --spacing-s5: 64px;
+  --spacing-s6: 96px;
+
+  --font-size-t-name: 40px;
+  --font-size-t-head: 26px;
+  --font-size-t-lead: 21px;
+  --font-size-t-sub: 17px;
+  --font-size-t-body: 16px;
+  --font-size-t-small: 14px;
+  --font-size-t-mono: 11px;
+
+  --radius-token: 22px;
+
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base element defaults matching the reference file */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+  transition: background .5s ease, color .5s ease;
+}
