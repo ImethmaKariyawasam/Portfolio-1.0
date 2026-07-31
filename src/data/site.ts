@@ -1,6 +1,6 @@
 export const site = {
   name: "Imethma Kariyawasam",
-  role: "Backend · Cloud · Applied AI",
+  role: "Software Engineer · Backend · Cloud · Applied AI",
   location: { label: "Colombo, LK", timezone: "Asia/Colombo" },
   status: "Open to work",
   photo: "/images/imethma.jpg",

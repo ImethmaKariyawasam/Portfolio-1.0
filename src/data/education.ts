@@ -15,10 +15,7 @@ export const education: EducationItem[] = [
     school: "Sri Lanka Institute of Information Technology",
     dates: "2022 – Present",
     summary: "BSc (Hons) in Information Technology, specialising in Software Engineering",
-    body:
-      "WGPA 3.68 / 4.00. Dean's List in Year 1 and Year 4. " +
-      "Currently working toward the AWS AI Practitioner and Cloud Practitioner certifications.",
-    tags: ["Dean's List", "WGPA 3.68"],
+    tags: ["Dean's List, Y1 & Y4", "WGPA 3.68"],
     monogram: "SL",
     logo: "/images/logos/sliit.png",
   },
@@ -34,7 +31,7 @@ export const education: EducationItem[] = [
     id: "princess-of-wales",
     school: "Princess of Wales' College, Moratuwa",
     dates: "2008 – 2018",
-    summary: "G.C.E. Ordinary Level, nine A passes including IT",
+    summary: "G.C.E. Ordinary Level",
     monogram: "PW",
     logo: "/images/logos/princess-of-wales.png",
   },

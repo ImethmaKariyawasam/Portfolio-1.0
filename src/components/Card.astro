@@ -9,7 +9,7 @@ export interface Props {
   num?: string; // "01" prefix shown before the title
   title: string;
   date?: string; // mono text, top-right of the card head
-  headLink?: { href: string; label: string }; // used instead of `date` by interest cards
+  headLink?: { href: string; label: string }; // arrow-only link; label is used as the accessible name, not shown
   sub?: string;
   body?: string;
   bullets?: string[];
@@ -34,8 +34,8 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
       </h3>
       {date && <span class="mono">{date}</span>}
       {headLink && (
-        <a class="link" href={headLink.href}>
-          {headLink.label} <span class="arw">&rarr;</span>
+        <a class="link" href={headLink.href} aria-label={headLink.label}>
+          <span class="arw">&rarr;</span>
         </a>
       )}
     </div>

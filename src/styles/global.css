@@ -35,13 +35,13 @@
   --gutter: 116px;
   --radius: 22px;
 
-  /* colour — theme: paper (default) */
+  /* colour — theme: light (default) */
   --paper: #F7F7F2;
   --ink: #15181C;
   /* Brief section 7 requires 4.5:1 for body text; the reference file's
      original #767D84 measures 3.88:1 against --paper (fails AA). Darkened
      to the value below (4.61:1) — same hue/saturation, same value in the
-     other two themes (white 4.67:1, blueprint 5.58:1 already pass). */
+     other two themes (white 4.67:1, dark 5.58:1 already pass). */
   --muted: #6A7177;
   --fine: rgba(60, 84, 130, .07);
   --major: rgba(60, 84, 130, .115);
@@ -75,7 +75,7 @@
   --grain: .018;
 }
 
-[data-theme="blueprint"] {
+[data-theme="dark"] {
   --paper: #0A1420;
   --ink: #E1EBF6;
   --muted: #7B8FA6;
@@ -316,6 +316,7 @@ a { color: inherit; }
   background: var(--card); backdrop-filter: blur(6px);
 }
 .role .sep { opacity: .45; }
+.hero-loc { display: block; margin-top: var(--s1); }
 #clock { font-family: "JetBrains Mono", monospace; font-size: 12px; font-variant-numeric: tabular-nums; }
 .disc {
   width: 148px; height: 148px; border-radius: 50%;

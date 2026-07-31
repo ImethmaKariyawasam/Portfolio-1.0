@@ -35,7 +35,7 @@ no HTML changes needed.
 
 ## Theme system
 
-Two themes — `paper` (default) and `blueprint` — toggled by the button in the top
+Two themes — `light` (default) and `dark` — toggled by the button in the top
 bar, persisted to `localStorage`, and applied before first paint via an inline
 script in `Layout.astro` (no flash of the wrong theme on reload). (The reference
 design also had a `white` theme; dropped from the toggle cycle by request — its

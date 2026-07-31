@@ -25,7 +25,7 @@ const personLd = {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="paper">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,7 +48,7 @@ const personLd = {
 
     <!--
       No-flash theme script. Runs before first paint so the page never
-      shows the default "paper" theme for a frame before switching to a
+      shows the default "light" theme for a frame before switching to a
       saved preference — this is the persistence fix the brief calls out
       as a real bug in the reference file (theme currently resets on
       every reload).
@@ -57,7 +57,7 @@ const personLd = {
       (function () {
         try {
           var saved = localStorage.getItem("theme");
-          if (saved === "paper" || saved === "blueprint") {
+          if (saved === "light" || saved === "dark") {
             document.documentElement.setAttribute("data-theme", saved);
           }
         } catch (e) {}
@@ -74,8 +74,9 @@ const personLd = {
 
         /* --- themes: cycle + persist (the documented reload bug, fixed) ---
            "white" removed from the cycle by request; its CSS tokens are
-           still in global.css if it's ever wanted back. */
-        var themes = ["paper", "blueprint"];
+           still in global.css if it's ever wanted back. Renamed from
+           paper/blueprint to light/dark. */
+        var themes = ["light", "dark"];
         var root = document.documentElement;
         var btn = document.getElementById("themeBtn");
         var current = root.getAttribute("data-theme");
