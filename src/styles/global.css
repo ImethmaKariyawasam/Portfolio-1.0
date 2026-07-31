@@ -393,7 +393,7 @@ a { color: inherit; }
 .card-sub { color: var(--ink); font-size: var(--t-small); margin: 2px 0 var(--s1); }
 .card-body { color: var(--muted); font-size: var(--t-small); margin: 0 0 var(--s2); max-width: 62ch; }
 .card-body:last-child { margin-bottom: 0; }
-.card ul { margin: 0 0 var(--s2); padding-left: var(--s2); color: var(--muted); font-size: var(--t-small); max-width: 62ch; }
+.card ul { margin: 0 0 var(--s2); padding-left: 0; list-style-position: inside; color: var(--muted); font-size: var(--t-small); max-width: 62ch; }
 .card li + li { margin-top: 6px; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s2); }

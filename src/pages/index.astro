@@ -69,11 +69,10 @@ const contactLinks = [
     <!-- PROJECTS -->
     <Section label="Selected work" heading="Things I've built" sub="Built in teams at SLIIT. Each one names the part that was mine.">
       <div class="stack-v">
-        {projects.map((p, i) => (
+        {projects.map((p) => (
           <Card
             monogram={p.monogram}
             logo={p.logo}
-            num={String(i + 1).padStart(2, "0")}
             title={p.title}
             date={p.dates}
             sub={p.summary}
