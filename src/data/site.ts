@@ -7,12 +7,10 @@ export const site = {
   links: {
     email: "imethmak@gmail.com",
     github: "https://github.com/ImethmaKariyawasam",
-    linkedin: "https://linkedin.com/in/ImethmaKariyawasam",
-    // TODO (brief section 8): art channel and Medium URLs not yet supplied.
-    // Leave empty — components must render nothing rather than a dead "#" link.
-    art: "",
-    instagram: "",
-    medium: "",
+    linkedin: "https://www.linkedin.com/in/imethmakariyawasam/",
+    art: "https://www.instagram.com/art_immi/",
+    instagram: "https://www.instagram.com/imethma_kariyawasam/",
+    medium: "https://medium.com/@imethmak",
     // TODO (brief section 8): CV PDF not yet supplied.
     cv: "",
   },
