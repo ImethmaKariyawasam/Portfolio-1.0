@@ -5,6 +5,7 @@
 export interface Props {
   variant?: "default" | "quiet";
   monogram?: string;
+  logo?: string;
   num?: string; // "01" prefix shown before the title
   title: string;
   date?: string; // mono text, top-right of the card head
@@ -15,13 +16,17 @@ export interface Props {
   tags?: string[];
   link?: { href: string; label: string }; // bottom link, e.g. "Read the paper"
 }
-const { variant = "default", monogram, num, title, date, headLink, sub, body, bullets, tags, link } =
+const { variant = "default", monogram, logo, num, title, date, headLink, sub, body, bullets, tags, link } =
   Astro.props;
 const cardClass = variant === "quiet" ? "card quiet" : "card";
 ---
 
 <article class={cardClass}>
-  {monogram && <div class="tile">{monogram}</div>}
+  {(logo || monogram) && (
+    <div class="tile">
+      {logo ? <img src={logo} alt={title} loading="lazy" /> : monogram}
+    </div>
+  )}
   <div>
     <div class="card-head">
       <h3 class="card-title">

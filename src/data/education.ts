@@ -6,6 +6,7 @@ export interface EducationItem {
   body?: string;
   tags?: string[];
   monogram: string;
+  logo?: string;
 }
 
 export const education: EducationItem[] = [
@@ -19,6 +20,7 @@ export const education: EducationItem[] = [
       "Currently working toward the AWS AI Practitioner and Cloud Practitioner certifications.",
     tags: ["Dean's List", "WGPA 3.68"],
     monogram: "SL",
+    logo: "/images/logos/sliit.png",
   },
   {
     id: "devi-balika",
@@ -26,6 +28,7 @@ export const education: EducationItem[] = [
     dates: "2019 – 2022",
     summary: "G.C.E. Advanced Level, Physical Science stream",
     monogram: "DB",
+    logo: "/images/logos/devi-balika.png",
   },
   {
     id: "princess-of-wales",
@@ -33,5 +36,6 @@ export const education: EducationItem[] = [
     dates: "2008 – 2018",
     summary: "G.C.E. Ordinary Level, nine A passes including IT",
     monogram: "PW",
+    logo: "/images/logos/princess-of-wales.png",
   },
 ];

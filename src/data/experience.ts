@@ -9,6 +9,7 @@ export interface Experience {
   href?: string;
   hrefLabel?: string;
   monogram: string;
+  logo?: string;
 }
 
 export const experience: Experience[] = [
@@ -26,6 +27,7 @@ export const experience: Experience[] = [
     ],
     tags: ["Java", "Spring Boot", "Angular", "Node.js", "Jenkins"],
     monogram: "CB",
+    logo: "/images/logos/cambio.png",
   },
   {
     id: "ieee-sl-spark",
@@ -39,5 +41,6 @@ export const experience: Experience[] = [
     href: "https://spark.chamber.lk",
     hrefLabel: "View details",
     monogram: "IE",
+    logo: "/images/logos/ieee.png",
   },
 ];
