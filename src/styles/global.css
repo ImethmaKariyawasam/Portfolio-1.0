@@ -262,11 +262,12 @@ body.cursor-on .cur-ring.hot {
 
 a { color: inherit; }
 .link {
-  text-decoration: none; color: var(--accent);
-  background-image: linear-gradient(var(--accent), var(--accent));
+  text-decoration: none; color: var(--pink);
+  background-image: linear-gradient(var(--pink), var(--pink));
   background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 100%;
   transition: background-size .32s cubic-bezier(.4,0,.2,1); padding-bottom: 1px;
   display: inline-block;
+  font-size: var(--t-small);
 }
 .link:hover { background-size: 100% 1px; }
 .link .arw { display: inline-block; transition: transform .28s cubic-bezier(.4,0,.2,1); }
