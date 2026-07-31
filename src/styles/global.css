@@ -216,10 +216,10 @@ body {
 
 /* ===== cursor ===== */
 .cur-dot, .cur-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; opacity: 0; }
-.cur-dot { width: 7px; height: 7px; background: var(--accent); margin: -3.5px 0 0 -3.5px; transition: opacity .3s; }
+.cur-dot { width: 7px; height: 7px; background: var(--pink); margin: -3.5px 0 0 -3.5px; transition: opacity .3s; }
 .cur-ring {
   width: 30px; height: 30px; margin: -15px 0 0 -15px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--pink);
   transition: width .25s ease, height .25s ease, margin .25s ease, opacity .3s, background .25s ease;
 }
 body.cursor-on { cursor: none; }
@@ -227,7 +227,7 @@ body.cursor-on a, body.cursor-on button { cursor: none; }
 body.cursor-on .cur-dot, body.cursor-on .cur-ring { opacity: 1; }
 body.cursor-on .cur-ring.hot {
   width: 52px; height: 52px; margin: -26px 0 0 -26px;
-  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  background: color-mix(in srgb, var(--pink) 9%, transparent);
 }
 
 /* ===== alignment ===== */
