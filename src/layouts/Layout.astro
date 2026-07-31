@@ -57,7 +57,7 @@ const personLd = {
       (function () {
         try {
           var saved = localStorage.getItem("theme");
-          if (saved === "paper" || saved === "white" || saved === "blueprint") {
+          if (saved === "paper" || saved === "blueprint") {
             document.documentElement.setAttribute("data-theme", saved);
           }
         } catch (e) {}
@@ -72,8 +72,10 @@ const personLd = {
       (function () {
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        /* --- themes: cycle + persist (the documented reload bug, fixed) --- */
-        var themes = ["paper", "white", "blueprint"];
+        /* --- themes: cycle + persist (the documented reload bug, fixed) ---
+           "white" removed from the cycle by request; its CSS tokens are
+           still in global.css if it's ever wanted back. */
+        var themes = ["paper", "blueprint"];
         var root = document.documentElement;
         var btn = document.getElementById("themeBtn");
         var current = root.getAttribute("data-theme");

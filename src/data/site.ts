@@ -1,11 +1,9 @@
 export const site = {
   name: "Imethma Kariyawasam",
   role: "Backend · Cloud · Applied AI",
-  // Reference HTML footer says "Negombo, LK" specifically — kept exact per the brief's
-  // "port it, don't reinterpret it" rule, even though it differs from "Colombo" used
-  // in earlier CV drafts. Confirm which is correct.
-  location: { label: "Negombo, LK", timezone: "Asia/Colombo" },
+  location: { label: "Colombo, LK", timezone: "Asia/Colombo" },
   status: "Open to work",
+  photo: "/images/imethma.jpg",
   links: {
     email: "imethmak@gmail.com",
     github: "https://github.com/ImethmaKariyawasam",

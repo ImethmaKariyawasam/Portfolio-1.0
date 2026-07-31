@@ -20,23 +20,19 @@ export const alsoInvolvedWith: string[] = [
 ];
 
 export interface Photo {
-  // TODO (brief section 8): real photo files not yet supplied — src is a placeholder path.
-  // PhotoStrip renders the mono filename as a stand-in frame until images land in
-  // /public/images/volunteering/.
   src: string;
   alt: string;
   caption: string;
 }
 
 export const photos: Photo[] = [
-  { src: "/images/volunteering/wie-chapter.jpg", alt: "WIE chapter group photo, 2024", caption: "WIE chapter, 2024" },
-  { src: "/images/volunteering/sight-workshop.jpg", alt: "IEEE SIGHT workshop", caption: "IEEE SIGHT workshop" },
-  { src: "/images/volunteering/launchpad.jpg", alt: "Launchpad '24 event", caption: "Launchpad '24" },
-  { src: "/images/volunteering/spark.jpg", alt: "SPARK 2024 launch event", caption: "SPARK 2024 launch" },
-  { src: "/images/volunteering/xtreme.jpg", alt: "IEEEXtreme 18.0 competition", caption: "IEEEXtreme 18.0" },
-  { src: "/images/volunteering/ieee-day.jpg", alt: "IEEE Day at SLIIT", caption: "IEEE Day, SLIIT" },
-  { src: "/images/volunteering/wie-session.jpg", alt: "WIE tech session", caption: "WIE tech session" },
-  { src: "/images/volunteering/sight-outreach.jpg", alt: "IEEE SIGHT outreach event", caption: "SIGHT outreach" },
-  { src: "/images/volunteering/ias-program.jpg", alt: "IEEE IAS programme", caption: "IEEE IAS programme" },
-  { src: "/images/volunteering/launch26.jpg", alt: "LAUNCH26 hackathon finals", caption: "LAUNCH26 finals" },
+  { src: "/images/volunteering/unravel-2.0-group.jpg", alt: "UNravel 2.0 organising team, large group photo", caption: "UNravel 2.0, JamborIEEE" },
+  { src: "/images/volunteering/unravel-2.0-team.jpg", alt: "UNravel 2.0 core team photo", caption: "UNravel 2.0 core team" },
+  { src: "/images/volunteering/unravel-2.0-committee.jpg", alt: "UNravel 2.0 organising committee", caption: "UNravel 2.0 committee" },
+  { src: "/images/volunteering/cybershield-3.0-outdoor.jpg", alt: "CyberShield 3.0 at Curtin Colombo, outdoor group photo", caption: "CyberShield 3.0, Curtin Colombo" },
+  { src: "/images/volunteering/cybershield-3.0-indoor.jpg", alt: "CyberShield 3.0 organising team, indoor group photo", caption: "CyberShield 3.0 team" },
+  { src: "/images/volunteering/path-to-internship-24-auditorium.jpg", alt: "Path to Internship '24, full auditorium", caption: "Path to Internship '24" },
+  { src: "/images/volunteering/path-to-internship-24-group.jpg", alt: "Path to Internship '24 organising team", caption: "Path to Internship '24 team" },
+  { src: "/images/volunteering/path-to-internship-24-committee.jpg", alt: "Path to Internship '24 committee", caption: "Path to Internship '24 committee" },
+  { src: "/images/volunteering/ieee-session.jpg", alt: "IEEE student chapter session", caption: "IEEE chapter session" },
 ];

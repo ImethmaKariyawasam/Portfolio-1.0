@@ -1,10 +1,7 @@
 ---
 // Name, role pill (with live local-time clock), paw trail, portrait disc.
-// Portrait photo is a TODO (brief section 8) — reference file shows a
-// plain "Photo" mono placeholder rather than a real <img>, so that's what
-// is ported here. Swap for <img src="/images/imethma.jpg" alt="Imethma
-// Kariyawasam" loading="eager"> once the file exists (brief section 7:
-// portrait should load eager, not lazy).
+// Portrait loads eager (not lazy) per brief section 7 — it's above the
+// fold and the largest visual element on first paint.
 import { site } from "../data/site";
 import Paws from "./Paws.astro";
 ---
@@ -21,6 +18,8 @@ import Paws from "./Paws.astro";
     <Paws direction="east" />
   </div>
   <div class="rise" style="animation-delay:.16s">
-    <div class="disc"><span class="mono">Photo</span></div>
+    <div class="disc">
+      <img src={site.photo} alt={site.name} width="148" height="148" loading="eager" />
+    </div>
   </div>
 </section>

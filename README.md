@@ -26,8 +26,8 @@ no HTML changes needed.
 
 ## Still outstanding
 
-- [ ] Portrait photo → `public/images/imethma.jpg`
-- [ ] Ten volunteering photos (4:3) → `public/images/volunteering/`
+- [x] Portrait photo → `public/images/imethma.jpg`
+- [x] Volunteering photos (4:3) → `public/images/volunteering/`
 - [ ] CV as PDF, linked from `src/data/site.ts`
 - [ ] Art channel and Medium profile URLs, in `src/data/site.ts`
 - [ ] Confirm exact Cambio end month in `src/data/experience.ts`
@@ -35,6 +35,8 @@ no HTML changes needed.
 
 ## Theme system
 
-Three themes — `paper` (default), `white`, `blueprint` — toggled by the button in the
-top bar, persisted to `localStorage`, and applied before first paint via an inline
-script in `Layout.astro` (no flash of the wrong theme on reload).
+Two themes — `paper` (default) and `blueprint` — toggled by the button in the top
+bar, persisted to `localStorage`, and applied before first paint via an inline
+script in `Layout.astro` (no flash of the wrong theme on reload). (The reference
+design also had a `white` theme; dropped from the toggle cycle by request — its
+tokens are still defined in `global.css` if it's ever wanted back.)

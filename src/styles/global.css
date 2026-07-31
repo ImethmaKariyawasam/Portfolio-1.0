@@ -5,6 +5,7 @@
 @import "@fontsource/instrument-sans/500.css";
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/600.css";
 
 /* =======================================================================
    DESIGN TOKENS
@@ -225,7 +226,11 @@ body.cursor-on .cur-ring.hot {
   gap: var(--s4);
   margin-top: var(--s6);
 }
-.block > .label { padding-top: 10px; color: var(--pink); }
+.block > .label {
+  padding-top: 10px; color: var(--pink);
+  /* Bumped up from the base .mono size (11px/400) — was hard to read. */
+  font-size: 13px; font-weight: 600;
+}
 .stack-v { display: grid; gap: var(--s2); }
 
 .mono {
@@ -305,7 +310,13 @@ a { color: inherit; }
   border: 1px solid var(--line); box-shadow: var(--shadow);
   display: grid; place-items: center; overflow: hidden;
 }
-.disc img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.disc img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  /* Zoomed in and biased toward the top so the face fills the circle
+     instead of showing shoulders/background — tune scale/position here
+     if it needs further adjustment once you see it live. */
+  transform: scale(1.5); object-position: 50% 15%;
+}
 .disc .mono { font-size: 10px; }
 
 /* ===== card ===== */
