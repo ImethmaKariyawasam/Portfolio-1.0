@@ -7,6 +7,7 @@ export interface Interest {
   href: string;
   hrefLabel: string; // accessible name for the arrow-only link, not shown as text
   monogram: string;
+  logo?: string;
 }
 
 // Both link out to URLs from site.ts (art, medium). The Interests component only
@@ -21,6 +22,7 @@ export const interests: Interest[] = [
     href: site.links.art,
     hrefLabel: "See the art on Instagram",
     monogram: "ART",
+    logo: "/images/logos/art.png",
   },
   {
     title: "@imethmak",
@@ -29,5 +31,6 @@ export const interests: Interest[] = [
     href: site.links.medium,
     hrefLabel: "Read on Medium",
     monogram: "M",
+    logo: "/images/logos/writing.png",
   },
 ];

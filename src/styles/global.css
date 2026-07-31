@@ -282,9 +282,17 @@ a { color: inherit; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); position: relative; flex-shrink: 0; }
 .dot::after {
   content: ""; position: absolute; inset: -6px; border-radius: 50%;
-  border: 1.5px solid var(--pink); opacity: .6; animation: pulse 2.8s ease-out infinite;
+  border: 1.5px solid var(--pink); opacity: .5;
+  /* Named dotPulse, not "pulse" — Tailwind v4 ships its own @keyframes pulse
+     for animate-pulse, and since keyframe names are global, that definition
+     was silently replacing this one. */
+  animation: dotPulse 2s ease-in-out infinite;
 }
-@keyframes pulse { 0% { transform: scale(.5); opacity: .7 } 70% { transform: scale(1.6); opacity: 0 } 100% { opacity: 0 } }
+@keyframes dotPulse {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.5) }
+  100% { transform: scale(1) }
+}
 .topright { display: flex; align-items: center; gap: var(--s2); }
 .social { display: flex; align-items: center; gap: 2px; margin: var(--s2) 0 0 -6px; }
 .social a {
@@ -314,6 +322,9 @@ a { color: inherit; }
   font-size: 13.5px; color: var(--muted); padding: 6px 16px;
   border: 1px solid var(--line); border-radius: 100px;
   background: var(--card); backdrop-filter: blur(6px);
+  /* Compensate the pill's own left padding/border so its text lines up
+     with .name and .hero-loc above/below, which sit flush at the edge. */
+  margin-left: -17px;
 }
 .role .sep { opacity: .45; }
 .hero-loc { display: block; margin-top: var(--s1); }

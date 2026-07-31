@@ -10,4 +10,5 @@ export const publication = {
   href: "https://ieeexplore.ieee.org/document/11604795",
   hrefLabel: "View details",
   monogram: "IEEE",
+  logo: "/images/logos/ieee.png",
 };

@@ -1,6 +1,6 @@
 export const site = {
   name: "Imethma Kariyawasam",
-  role: "Software Engineer",
+  role: "Software Engineering Student",
   location: { label: "Colombo, LK", timezone: "Asia/Colombo" },
   status: "Open to work",
   photo: "/images/imethma.jpg",
