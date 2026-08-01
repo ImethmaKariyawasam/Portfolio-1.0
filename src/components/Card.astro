@@ -12,11 +12,12 @@ export interface Props {
   headLink?: { href: string; label: string }; // arrow-only link; label is used as the accessible name, not shown
   sub?: string;
   body?: string;
+  credit?: string; // small mono line below body/bullets
   bullets?: string[];
   tags?: string[];
   link?: { href: string; label: string }; // bottom link, e.g. "Read the paper"
 }
-const { variant = "default", monogram, logo, num, title, date, headLink, sub, body, bullets, tags, link } =
+const { variant = "default", monogram, logo, num, title, date, headLink, sub, body, credit, bullets, tags, link } =
   Astro.props;
 const cardClass = variant === "quiet" ? "card quiet" : "card";
 ---
@@ -41,6 +42,7 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
     </div>
     {sub && <p class="card-sub">{sub}</p>}
     {body && <p class="card-body">{body}</p>}
+    {credit && <p class="mono">{credit}</p>}
     {bullets && bullets.length > 0 && (
       <ul>
         {bullets.map((b) => (

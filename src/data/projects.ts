@@ -5,6 +5,7 @@ export interface Project {
   dates: string; // display string, e.g. "Jun 2025 - 2026"
   summary: string; // one line (card-sub)
   body?: string; // paragraph (card-body)
+  credit?: string; // small mono line below body, e.g. publication/deployment credit
   tags: string[];
   href?: string;
   hrefLabel?: string; // "Read the paper", "View details"
@@ -36,11 +37,12 @@ export const projects: Project[] = [
       "INTELLEA is an AI-driven learning platform that personalises education through adaptive " +
       "tutoring, real-time emotion analysis, and multi-agent assessment. I designed and built SAGE, " +
       "its grading engine: a LangGraph-orchestrated pipeline that routes each submission to a " +
-      "specialist agent — objective, subjective, mathematics, or coding — grounded in course content " +
-      "via RAG over Pinecone. It self-corrects malformed outputs through a validate-and-retry loop, " +
-      "flags low-confidence grades for teacher review, checks for plagiarism via TF-IDF cosine " +
+      "specialist agent for objective, subjective, mathematics, or coding work, grounded in course " +
+      "content via RAG over Pinecone. It self-corrects malformed outputs through a validate-and-retry " +
+      "loop, flags low-confidence grades for teacher review, checks for plagiarism via TF-IDF cosine " +
       "similarity, and feeds Bloom's-taxonomy-classified analytics into teacher dashboards.",
-    tags: ["Python", "FastAPI", "LangGraph", "Pinecone", "Kafka", "MongoDB", "AWS ECR/ECS", "IEEE SmartNets 2026"],
+    credit: "Built, deployed and run on AWS, and published at IEEE SmartNets 2026.",
+    tags: ["Python", "FastAPI", "LangGraph", "Pinecone", "Kafka", "MongoDB", "AWS ECR/ECS"],
     href: "https://ieeexplore.ieee.org/document/11604795",
     hrefLabel: "Read the paper",
     monogram: "IN",
