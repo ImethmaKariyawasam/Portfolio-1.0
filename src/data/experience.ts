@@ -17,7 +17,7 @@ export const experience: Experience[] = [
     id: "cambio",
     org: "Cambio Software Engineering",
     role: "Software Engineer Intern",
-    dates: "Jul 2024 – Jul 2026",
+    dates: "Jul 2025 – Jul 2026",
     body:
       "Contributed to enterprise software development in a live production environment, " +
       "implementing bug fixes, feature enhancements, and system improvements across Java, Spring " +
@@ -30,7 +30,7 @@ export const experience: Experience[] = [
   {
     id: "ieee-sl-spark",
     org: "IEEE Sri Lanka Section",
-    role: "Web Development Coordinator · volunteer",
+    role: "Web Development Team Volunteer",
     dates: "Sep 2024",
     body:
       "Built and shipped the official SPARK 2024 competition site in collaboration with the " +
