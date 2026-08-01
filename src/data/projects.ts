@@ -71,10 +71,11 @@ export const projects: Project[] = [
     dates: "Jun – Nov 2024",
     summary: "Shopping built for visually impaired users",
     body:
-      "Voice navigation, text-to-speech, speech-to-text and audio product descriptions, so " +
-      "someone can search, browse a store and buy without sighted help. I built the user " +
-      "management module. The accessibility constraints changed how I think about interface " +
-      "state generally.",
+      "An accessible shopping platform built for visually impaired users, enabling independent " +
+      "product discovery and purchasing through voice-based interactions. The system uses voice " +
+      "navigation, speech-to-text, text-to-speech, and audio product descriptions to improve " +
+      "accessibility. I developed the User Management module, while working within accessibility " +
+      "constraints that shaped how I approach user experience and interface design.",
     tags: ["React", "React Native", "Node", "Express", "MongoDB", "Firebase"],
     monogram: "VS",
     logo: "/images/logos/visionspot.png",
