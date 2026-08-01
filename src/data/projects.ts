@@ -31,7 +31,7 @@ export const projects: Project[] = [
     title: "INTELLEA",
     kind: "AI-driven learning platform · SAGE grading engine",
     dates: "Jun 2025 – 2026",
-    summary: "AI-driven learning platform · SAGE grading engine · published at IEEE SmartNets 2026",
+    summary: "AI-driven learning platform · SAGE grading engine",
     body:
       "INTELLEA is an AI-driven learning platform that personalises education through adaptive " +
       "tutoring, real-time emotion analysis, and multi-agent assessment. I designed and built SAGE, " +
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "via RAG over Pinecone. It self-corrects malformed outputs through a validate-and-retry loop, " +
       "flags low-confidence grades for teacher review, checks for plagiarism via TF-IDF cosine " +
       "similarity, and feeds Bloom's-taxonomy-classified analytics into teacher dashboards.",
-    tags: ["Python", "FastAPI", "LangGraph", "Pinecone", "Kafka", "MongoDB", "AWS ECR/ECS"],
+    tags: ["Python", "FastAPI", "LangGraph", "Pinecone", "Kafka", "MongoDB", "AWS ECR/ECS", "IEEE SmartNets 2026"],
     href: "https://ieeexplore.ieee.org/document/11604795",
     hrefLabel: "Read the paper",
     monogram: "IN",
