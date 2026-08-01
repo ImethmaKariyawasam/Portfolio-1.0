@@ -8,7 +8,7 @@ export const publication = {
     "J. Perera. My section covers SAGE, the multi-agent grading engine behind INTELLEA.",
   tags: ["Multi-agent", "Assessment", "IEEE Xplore"],
   href: "https://ieeexplore.ieee.org/document/11604795",
-  hrefLabel: "View details",
+  hrefLabel: "Read the paper on IEEE Xplore",
   monogram: "IEEE",
   logo: "/images/logos/ieee.png",
 };

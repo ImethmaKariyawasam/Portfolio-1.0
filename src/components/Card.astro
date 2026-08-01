@@ -42,7 +42,7 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
     </div>
     {sub && <p class="card-sub">{sub}</p>}
     {body && <p class="card-body">{body}</p>}
-    {credit && <p class="mono">{credit}</p>}
+    {credit && <p class="card-body">{credit}</p>}
     {bullets && bullets.length > 0 && (
       <ul>
         {bullets.map((b) => (
