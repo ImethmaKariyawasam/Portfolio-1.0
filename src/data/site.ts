@@ -1,6 +1,6 @@
 export const site = {
   name: "Imethma Kariyawasam",
-  role: "Full-Stack Developer · AI Enthusiast",
+  role: "SE Undergrad · AI Enthusiast",
   location: { label: "Colombo, LK", timezone: "Asia/Colombo" },
   status: "Open to work",
   photo: "/images/imethma.jpg",
@@ -14,12 +14,13 @@ export const site = {
     // TODO (brief section 8): CV PDF not yet supplied.
     cv: "",
   },
-  tagline: "I build the parts that have to keep working.",
+  tagline: "Most things I know started as something I didn't know yet.",
   intro:
-    "Backend services and cloud infrastructure are where I started, but the AI agents that increasingly " +
-    "run inside them are what I keep coming back to. Final-year software engineering undergraduate at " +
-    "SLIIT, a year into Cambio working on a live enterprise codebase, and co-author of an IEEE paper on " +
-    "a multi-agent grading engine I designed and shipped.",
+    "As a final-year Software Engineering undergraduate at SLIIT, I enjoy learning new technologies and " +
+    "turning that knowledge into practical solutions. My journey has taken me from building full-stack " +
+    "applications to contributing to enterprise software at Cambio and exploring applied AI through my " +
+    "research, where I developed a multi-agent grading system published at IEEE SmartNets 2026.",
+  introClosing: "I believe the best way to learn is by building.",
   introTags: ["Dean's List, Y1 & Y4", "WGPA 3.68", "IEEE published", "AWS certs in progress"],
   footerNote: "Built by hand. No template.",
 };
