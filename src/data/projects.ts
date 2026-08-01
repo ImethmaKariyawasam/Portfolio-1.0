@@ -87,9 +87,11 @@ export const projects: Project[] = [
     dates: "Jun – Nov 2024",
     summary: "Waste collection that pays you back for recyclables",
     body:
-      "Collection scheduling, regional driver assignment and progress tracking, with rewards for " +
-      "recyclable waste and service fees for everything else. I built the payment management " +
-      "module. Money moving in both directions made the logic more interesting than it sounds.",
+      "A smart waste management platform that connects users with waste collection services while " +
+      "encouraging recycling through rewards. The system supports collection scheduling, regional " +
+      "driver assignment, progress tracking, recyclable waste rewards, and service fee payments. I " +
+      "developed the Payment Management module, handling payment workflows for both customer " +
+      "payments and recycling reward transactions.",
     tags: ["React", "Node", "Express", "MongoDB"],
     monogram: "ZW",
     logo: "/images/logos/zerowaste.png",
