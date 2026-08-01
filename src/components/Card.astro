@@ -9,7 +9,7 @@ export interface Props {
   num?: string; // "01" prefix shown before the title
   title: string;
   date?: string; // mono text, top-right of the card head
-  headLink?: { href: string; label: string }; // arrow-only link; label is used as the accessible name, not shown
+  headLink?: { href: string; label: string }; // makes the whole card a link (like .clink); arrow shown top-right
   sub?: string;
   body?: string;
   credit?: string; // small mono line below body/bullets
@@ -20,9 +20,10 @@ export interface Props {
 const { variant = "default", monogram, logo, num, title, date, headLink, sub, body, credit, bullets, tags, link } =
   Astro.props;
 const cardClass = variant === "quiet" ? "card quiet" : "card";
+const Tag = headLink ? "a" : "article";
 ---
 
-<article class={cardClass}>
+<Tag class={cardClass} href={headLink?.href}>
   {(logo || monogram) && (
     <div class={logo ? "tile has-logo" : "tile"}>
       {logo ? <img src={logo} alt={title} loading="lazy" /> : monogram}
@@ -34,11 +35,7 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
         {num && <span class="num mono">{num}</span>}{title}
       </h3>
       {date && <span class="mono">{date}</span>}
-      {headLink && (
-        <a class="link" href={headLink.href} aria-label={headLink.label}>
-          <span class="arw">&rarr;</span>
-        </a>
-      )}
+      {headLink && <span class="link"><span class="arw">&rarr;</span></span>}
     </div>
     {sub && <p class="card-sub">{sub}</p>}
     {body && <p class="card-body">{body}</p>}
@@ -63,4 +60,4 @@ const cardClass = variant === "quiet" ? "card quiet" : "card";
       </a>
     )}
   </div>
-</article>
+</Tag>
