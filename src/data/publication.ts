@@ -1,6 +1,7 @@
 export const publication = {
   title:
-    "A Multi-Agent Learning Platform with Configurable Pedagogy and Automated Assessment",
+    "A Multi-Agent Learning Platform with Configurable Pedagogy, Automated Assessment, " +
+    "Dual-Modality Programming, and Multimodal Emotion-Aware Tutoring",
   venue: "SmartNets 2026 · IEEE · Rome, Italy",
   dates: "2026",
   body:
