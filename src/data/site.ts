@@ -18,9 +18,9 @@ export const site = {
   intro:
     "As a final-year Software Engineering undergraduate at SLIIT, I enjoy exploring new technologies and " +
     "turning that knowledge into practical solutions. My journey has taken me from building full-stack " +
-    "applications to contributing to enterprise software at Cambio and exploring applied AI through my " +
+    "applications to contributing to enterprise software at Cambio and applying AI through my " +
     "research, where I developed a multi-agent grading system published at IEEE SmartNets 2026.",
   introClosing: "I believe the best way to learn is by building.",
-  introTags: ["Dean's List, Y1 & Y4", "WGPA 3.68", "IEEE Publication", "AWS certs in progress"],
+  introTags: ["Dean's List, Y1 & Y4", "WGPA 3.68", "IEEE SmartNets 2026", "AWS certs in progress"],
   footerNote: "Built by hand. No template.",
 };
