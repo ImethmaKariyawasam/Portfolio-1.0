@@ -18,12 +18,12 @@ export const experience: Experience[] = [
     org: "Cambio Software Engineering",
     role: "Software Engineer Intern",
     dates: "Jul 2024 – Jul 2026",
-    bullets: [
-      "Delivered bug fixes and feature enhancements on enterprise modules of the Cosmic platform, in a live production codebase.",
-      "Worked across Java Spring Boot, Java Swing and Angular.",
-      "Maintained Active Directory environments and supported Jenkins CI/CD pipelines for repeatable deployments.",
-    ],
-    tags: ["Java", "Spring Boot", "Angular", "Jenkins"],
+    body:
+      "Contributed to enterprise software development in a live production environment, " +
+      "implementing bug fixes, feature enhancements, and system improvements across Java, Spring " +
+      "Boot, Java Swing, C#, and Angular. Supported Jenkins CI/CD pipelines and automatic " +
+      "deployment environments to maintain reliable and repeatable deployment workflows.",
+    tags: ["Java", "Spring Boot", "Angular", "C#", "Jenkins"],
     monogram: "CB",
     logo: "/images/logos/cambio.png",
   },
