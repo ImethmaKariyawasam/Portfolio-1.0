@@ -22,10 +22,10 @@ export const experience: Experience[] = [
     dates: "Jul 2024 – 2026",
     bullets: [
       "Delivered bug fixes and feature enhancements on enterprise modules of the Cosmic platform, in a live production codebase.",
-      "Worked across Java Spring Boot, Java Swing, Node.js and Angular.",
+      "Worked across Java Spring Boot, Java Swing and Angular.",
       "Maintained Active Directory environments and supported Jenkins CI/CD pipelines for repeatable deployments.",
     ],
-    tags: ["Java", "Spring Boot", "Angular", "Node.js", "Jenkins"],
+    tags: ["Java", "Spring Boot", "Angular", "Jenkins"],
     monogram: "CB",
     logo: "/images/logos/cambio.png",
   },
