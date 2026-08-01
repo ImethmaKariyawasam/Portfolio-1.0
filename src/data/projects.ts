@@ -29,16 +29,17 @@ export const projects: Project[] = [
   {
     id: "intellea",
     title: "INTELLEA",
-    kind: "Multi-agent AI grading on AWS",
+    kind: "AI-driven learning platform · SAGE grading engine",
     dates: "Jun 2025 – 2026",
-    summary: "Multi-agent AI grading on AWS · published at IEEE SmartNets 2026",
+    summary: "AI-driven learning platform · SAGE grading engine · published at IEEE SmartNets 2026",
     body:
-      "I architected and built the Assessment Engine: a LangGraph-orchestrated workflow that " +
-      "routes MCQ, essay, coding and math submissions to specialised evaluator agents, with an " +
-      "automated validate-and-retry loop and a dedicated bias-checking stage. Subjective grading " +
-      "is grounded in real curriculum content through a RAG pipeline over Pinecone rather than " +
-      "model memory. Along the way I tracked down a production scoring bug and a cross-thread " +
-      "asyncio event-loop bug that was corrupting database writes.",
+      "INTELLEA is an AI-driven learning platform that personalises education through adaptive " +
+      "tutoring, real-time emotion analysis, and multi-agent assessment. I designed and built SAGE, " +
+      "its grading engine: a LangGraph-orchestrated pipeline that routes each submission to a " +
+      "specialist agent — objective, subjective, mathematics, or coding — grounded in course content " +
+      "via RAG over Pinecone. It self-corrects malformed outputs through a validate-and-retry loop, " +
+      "flags low-confidence grades for teacher review, checks for plagiarism via TF-IDF cosine " +
+      "similarity, and feeds Bloom's-taxonomy-classified analytics into teacher dashboards.",
     tags: ["Python", "FastAPI", "LangGraph", "Pinecone", "Kafka", "MongoDB", "AWS ECR/ECS"],
     href: "https://ieeexplore.ieee.org/document/11604795",
     hrefLabel: "Read the paper",

@@ -17,9 +17,7 @@ export const experience: Experience[] = [
     id: "cambio",
     org: "Cambio Software Engineering",
     role: "Software Engineer Intern",
-    // TODO (brief section 8): exact end month not yet confirmed — reference file has
-    // "Jul 2024 – 2026" but earlier CV drafts used "Present" (ongoing). Confirm before shipping.
-    dates: "Jul 2024 – 2026",
+    dates: "Jul 2024 – Jul 2026",
     bullets: [
       "Delivered bug fixes and feature enhancements on enterprise modules of the Cosmic platform, in a live production codebase.",
       "Worked across Java Spring Boot, Java Swing and Angular.",
