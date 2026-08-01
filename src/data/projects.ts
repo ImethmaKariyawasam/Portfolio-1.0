@@ -55,9 +55,11 @@ export const projects: Project[] = [
     dates: "Apr – Jul 2025",
     summary: "Cloud-native food ordering and delivery",
     body:
-      "A delivery platform built as independent microservices, with real-time order tracking, " +
-      "multi-role access, Stripe payments and automated email updates. I owned the payment " +
-      "management service end to end, including how it fails without taking an order down with it.",
+      "A cloud-native food delivery platform built using microservices, enabling customer ordering, " +
+      "restaurant management, delivery assignment, real-time order tracking, and secure Stripe " +
+      "payments. The system includes role-based access control and automated email notifications " +
+      "for order updates. I owned the Payment Management Service end-to-end, designing payment " +
+      "workflows and handling failure scenarios to keep the ordering experience reliable.",
     tags: ["Spring Boot", "Docker", "Kubernetes", "React", "Microservices"],
     monogram: "FF",
     logo: "/images/logos/flavour-fleet.png",
