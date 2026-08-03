@@ -56,16 +56,18 @@ const contactLinks = [
       </div>
     </Section>
 
-    <!-- CURRENTLY BUILDING -->
-    <Section label="Right now" heading="What I'm building at the moment">
-      <Card
-        monogram={currentlyBuilding.monogram}
-        title={currentlyBuilding.title}
-        date={currentlyBuilding.dates}
-        sub={currentlyBuilding.kind}
-        body={currentlyBuilding.body}
-      />
-    </Section>
+    {/* CURRENTLY BUILDING: hidden until there's real content behind it */}
+    {false && (
+      <Section label="Right now" heading="What I'm building at the moment">
+        <Card
+          monogram={currentlyBuilding.monogram}
+          title={currentlyBuilding.title}
+          date={currentlyBuilding.dates}
+          sub={currentlyBuilding.kind}
+          body={currentlyBuilding.body}
+        />
+      </Section>
+    )}
 
     <!-- PROJECTS -->
     <Section label="Selected work" heading="Things I've built">
