@@ -15,7 +15,6 @@ export const education: EducationItem[] = [
     school: "Sri Lanka Institute of Information Technology",
     dates: "2022 – Present",
     summary: "BSc (Hons) in Information Technology, specialising in Software Engineering",
-    tags: ["Dean's List, Y1 & Y4", "WGPA 3.68"],
     monogram: "SL",
     logo: "/images/logos/sliit.png",
   },

@@ -21,5 +21,4 @@ export const site = {
     "applications to contributing to enterprise software at Cambio and applying AI through my " +
     "research, where I developed a multi-agent grading system published at IEEE SmartNets 2026.",
   introClosing: "I believe the best way to learn is by building.",
-  introTags: ["Dean's List, Y1 & Y4", "WGPA 3.68", "IEEE SmartNets 2026", "AWS certs in progress"],
 };
